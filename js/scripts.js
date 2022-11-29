@@ -28,10 +28,20 @@ function createAreaTooltip(layer) {
 function updateAreaTooltip(layer) {
     var area = L.GeometryUtil.geodesicArea(layer.getLatLngs()[0]);
     var readableArea = L.GeometryUtil.readableArea(area, true);
+    var latLngs = layer.getLatLngs();
+    //console.log(latLngs);
+    var temp = "";
+    latLngs[0].forEach( 
+        function( elm) {
+             temp += elm.lat + ", " + elm.lng + "<br/>";
+            } 
+    );
+    console.log(temp);
     var latlng = layer.getCenter();
 
     layer.areaTooltip
-        .setContent(readableArea)
+        //.setContent(readableArea)
+        .setContent(temp)
         .setLatLng(latlng);
 }
 
