@@ -43,6 +43,7 @@ function updateAreaTooltip(layer) {
         //.setContent(readableArea)
         .setContent(temp)
         .setLatLng(latlng);
+    $('#data').html(temp);
 }
 
 
@@ -97,7 +98,7 @@ map.addControl(new L.Control.Draw({
         marker: false,
         circle: false,
         circlemarker: false,
-        rectangle: false,
+        rectangle: true,
         polyline: false,
         polygon: {
             allowIntersection: false,
